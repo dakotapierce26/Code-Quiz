@@ -1,36 +1,85 @@
 var index = 0;
-
+var counter = 0;
 const answerBtns = document.getElementById('answer-btns');
+const nextBtn = document.getElementById('next-btn')
 
-document.getElementById("start-btn").addEventListener("click", startBtn);
+//document.getElementById("start-btn").addEventListener("click", startBtn);
 
+//starts quiz
 function startBtn() {
-    var startBtn = document.getElementById('start-btn')
+    var startBtn = document.getElementById('start-btn');
+    var intro = document.getElementById('intro');
+    intro.classList.add('hide');
     startBtn.classList.add('hide');
     answerBtns.classList.remove('hide');
-    document.getElementById("questionPrompt").innerHTML = codeQuiz[index].question;
-    document.getElementById("answer1").innerHTML = codeQuiz[index].answers;
-    document.getElementById("answer2").innerHTML = codeQuiz[index].answers;
-    document.getElementById("answer3").innerHTML = codeQuiz[index].answers;
-    document.getElementById("answer4").innerHTML = codeQuiz[index].answers;
-    if (index < codeQuiz.length-1) {
-        index++
+    nextQuestion();
+}   
+
+function buttonClicked(number) {
+    if (codeQuiz[index].correct === number) {
+        counter++
+        console.log(counter)
     }
 }
 
+//document.getElementById("next-btn").addEventListener('click', nextQuestion);
+
+function nextQuestion() {
+    nextBtn.classList.remove('hide');
+    if (index <= codeQuiz.length-1) {
+        document.getElementById("questionPrompt").innerHTML = codeQuiz[index].question;
+        document.getElementById("answer1").innerHTML = codeQuiz[index].answer1;
+        document.getElementById("answer2").innerHTML = codeQuiz[index].answer2;
+        document.getElementById("answer3").innerHTML = codeQuiz[index].answer3;
+        document.getElementById("answer4").innerHTML = codeQuiz[index].answer4;
+        index++;
+    }
+    
+    if (codeQuiz.length-1 === index) {
+        document.getElementById("questionPrompt").innerHTML = 'You got ' + counter + ' answers correct!'
+        nextBtn.classList.add('hide');
+        answerBtns.classList.add('hide');
+    }
+
+    
+
+} 
 
 
 
-var codeQuiz = [
-    {"question" : "Who am I?", "answers" : ["Answer 1.1", "Answer 1.2","Answer 1.3","Answer 1.4"] ,"correct" :1, "was_correct":0},
-    {"question" : "Where am I?", "answers" : ["Answer 2.1", "Answer 2.2","Answer 2.3","Answer 2.4"] ,"correct" :2, "was_correct":0},
-    {"question" : "Who are you?", "answers" : ["Answer 3.1", "Answer 3.2","Answer 3.3","Answer 3.4"] ,"correct" :2, "was_correct":0},
-    {"question" : "Can I be you?", "answers" : ["Answer 4.1", "Answer 4.2","Answer 3.3","Answer 4.4"] ,"correct" :2, "was_correct":0}
+//Question and answer array
+var codeQuiz =[
+    {question : "Who am I?",
+     answer1 : "Answer 1.1",
+     answer2 : "Answer 1.2",
+     answer3 : "Answer 1.3",
+     answer4 : "Answer 1.4", correct :2},
+
+    {question : "Where am I?",
+     answer1 : "Answer 2.1",
+     answer2 : "Answer 1.2",
+     answer3 : "Answer 1.3",
+     answer4 : "Answer 1.4", correct :2},
+
+    {question : "Who are you?",
+     answer1 : "Answer 3.1",
+     answer2 : "Answer 1.2",
+     answer3 : "Answer 1.3",
+     answer4 : "Answer 1.4", correct :2},
+
+    {question : "Can I be you?",
+     answer1 : "Answer 4.1",
+     answer2 : "Answer 1.2",
+     answer3 : "Answer 1.3",
+     answer4 : "Answer 1.4", correct :2},
 ];
 
-
-
-
+/*
+question:'',
+answers:[
+    {text:'',correct:},
+]
+*/
 
 
 

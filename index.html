@@ -23,18 +23,19 @@
         <section>
             <div class="container d-flex justify-content-center">
                 <div class="jumbotron text-center text-info bg-dark rounded-3 p-5 shadow-lg">
-                    <h1 id="questionPrompt">Welcome to the Code Quiz!</h1>
-                    <p>Click the "Start!" button to start the quiz to test your knowledge and earn a place on the leaderboard!</p>
-                    <button id="start-btn" class="btn btn-outline-info btn-lrg" id="start-quiz">Start!</button>
+                    <h1 id="questionPrompt" class="mb-5">Welcome to the Code Quiz!</h1>
+                    <p id="intro">Click the "Start!" button to start the quiz to test your knowledge and earn a place on the leaderboard!</p>
+                    <button onclick="startBtn()" id="start-btn" class="btn btn-outline-info btn-lrg" id="start-quiz">Start!</button>
                     <div id="answer-btns" class="hide">
                         <div class="answerbtn-style">
-                            <button id="answer1" class="btn btn-outline-info btn-lrg"></button>
-                            <button id="answer2" class="btn btn-outline-info btn-lrg"></button>
-                            <button id="answer3" class="btn btn-outline-info btn-lrg"></button>
-                            <button id="answer4" class="btn btn-outline-info btn-lrg"></button>
+                            <li onclick="buttonClicked(1)" id="answer1" class="btn btn-outline-info btn-lrg"></li>
+                            <li onclick="buttonClicked(2)" id="answer2" class="btn btn-outline-info btn-lrg"></li>
+                            <li onclick="buttonClicked(3)" id="answer3" class="btn btn-outline-info btn-lrg"></li>
+                            <li onclick="buttonClicked(4)" id="answer4" class="btn btn-outline-info btn-lrg"></li>
                         </div>
                     </div>
-                    <button id="next-btn" class="btn btn-outline-info btn-lrg hide">Next</button>
+                    <button onclick="nextQuestion()" id="next-btn" class="btn btn-outline-info btn-lrg hide mt-5">Next</button>
+                    <button id="submit-btn" class="btn btn-outline-info btn-lrg hide mt-5">Submit</button>
                     
                 </div>
             </div>
