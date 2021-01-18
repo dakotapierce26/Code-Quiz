@@ -16,3 +16,7 @@
 .answer {
     display: none;
 }
+
+#time {
+    font-weight: bold;
+}

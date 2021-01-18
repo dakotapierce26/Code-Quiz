@@ -17,7 +17,7 @@ document.getElementById("start-btn").addEventListener("click", startTimer, start
 function startTimer() {
   timeLeft.classList.remove('hide')
     setInterval(startTimer, 1000);
-    var time =20
+    var time =60
     function startTimer() {
       time--
       document.getElementById("time").innerText = time
@@ -97,39 +97,39 @@ function endScreen() {
 
 //Question and answer array
 var codeQuiz =[
-    {question : "A very useful tool for used during development and debugging for printing content to the debugger is:?",
-    answer1 : "Javascript",
-    answer2 : "console log",
-    answer3 : "terminal / bash",
-    answer4 : "for loops", 
+    {question : "What is NOT a Javascript Data type?",
+    answer1 : "Number",
+    answer2 : "Class",
+    answer3 : "String",
+    answer4 : "Boolean", 
     correct : 3,"was_correct":0},
 
-    {question : "Commonly used data types DO NOT include?",
-     answer1 : "strings",
-     answer2 : "numbers",
-     answer3 : "booleans",
-     answer4 : "alerts", 
+    {question : "What symbol is used for single line comments?",
+     answer1 : "()",
+     answer2 : "''",
+     answer3 : "/*",
+     answer4 : "//", 
      correct : 2,"was_correct":0},
 
-    {question : "The condition in an if / else statement is enclosed within ____.",
-     answer1 : "parentheses",
-     answer2 : "square brackets",
-     answer3 : "curly brackets",
-     answer4 : "quotes", 
+    {question : "A ____ statement exits from the current loop.",
+     answer1 : "Break",
+     answer2 : "Stop",
+     answer3 : "Undefined",
+     answer4 : "For", 
      correct : 4,"was_correct":0},
 
-    {question : "String values must be enclosed within ____ when being assigned to variables.",
-     answer1 : "parenthesis",
-     answer2 : "commas",
-     answer3 : "quotes",
-     answer4 : "curly brackets", 
+    {question : "What are variables used for in JavaScript Programs?",
+     answer1 : "Varying randomly",
+     answer2 : "Causing high-school algebra flashbacks",
+     answer3 : "Storing numbers, dates, or other values",
+     answer4 : "None of the above", 
      correct : 1,"was_correct":0},
 
-    {question : "getElementById tracks what from HTML?",
-     answer1 : "Id",
-     answer2 : "Class",
-     answer3 : "Type",
-     answer4 : "src", 
+    {question : "______ tag is an extension to HTML that can enclose any number of JavaScript statements.",
+     answer1 : "SCRIPT",
+     answer2 : "BODY",
+     answer3 : "HEAD",
+     answer4 : "TITLE", 
      correct : 3,"was_correct":0},
 
      {question : "VOID",

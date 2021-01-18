@@ -10,10 +10,10 @@
 
     <body class="bg-secondary text-white">
         
-
+        
         <section>
-            <div class="container d-flex justify-content-center">
-                <div class="jumbotron text-center text-info bg-dark rounded-3 p-5 shadow-lg">
+            <div class="container d-flex justify-content-center mt-5">
+                <div class="jumbotron-fluid text-center text-info bg-dark rounded-3 p-5 shadow-lg border border-info">
                     <h1 id="questionPrompt" class="mb-5">Welcome to the Code Quiz!</h1>
                     <p id="intro">Click the "Start!" button to start the quiz to test your knowledge and earn a place on the leaderboard!</p>
                     <button onclick="startBtn()" id="start-btn" class="btn btn-outline-info btn-lrg" id="start-quiz">Start!</button>
@@ -33,8 +33,8 @@
         </section>
 
         <section id="timeLeft" class="high-scores container text-center hide">
-            <div class="row">
-                <div class="col pb-5 pt-3 ">
+            <div class="row justify-content-end mx-auto">
+                <div class="col-lg-2 p-3 bg-info rounded-pill rounded-3 text-dark border border-dark">
                     <div>Time: <span id="time">60</span></div>
                 </div>
             </div>
@@ -42,12 +42,13 @@
 
         <section>
             <div id="save-score" class="container text-center p-5 hide">
-                <div class="jumbotron">
+                <div class="jumbotron bg-dark rounded-3 p-5 border border-info">
                         <p>Enter your initals below!</p>
                     <form id="initials" class="p-2">
                         <input type="name" class="form-control" id="InputInitials">
                         <br>
-                        <button id="btn" class="btn-primary">Click to Add</button>
+                        <button id="btn" class="btn btn-outline-info btn-lrg">Click to Add</button>
+                        <button onclick="startBtn()" id="restart" class="btn btn-outline-info btn-lrg">Restart?</button>
                     </form>
                 </div>
             </div>
