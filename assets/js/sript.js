@@ -1,11 +1,41 @@
+
+// Var/Const
 var index = 0;
 var counter = 0;
+var submitScore = document.getElementById("continue");
 const answerBtns = document.getElementById('answer-btns');
-const nextBtn = document.getElementById('next-btn')
+const endButton = document.getElementById('end-btn')
+const quizEndScreen = document.getElementById('save-score')
+const countdown = document.getElementById('time')
+const timeLeft = document.getElementById('timeLeft')
 
-//document.getElementById("start-btn").addEventListener("click", startBtn);
+// Start Quiz Event Listener
+document.getElementById("start-btn").addEventListener("click", startTimer, startBtn)
 
-//starts quiz
+
+// Timer
+function startTimer() {
+  timeLeft.classList.remove('hide')
+    setInterval(startTimer, 1000);
+    var time =20
+    function startTimer() {
+      time--
+      document.getElementById("time").innerText = time
+      if (time == 012) {
+        countdown.classList.add('text-warning')
+      }
+      if (time == 05) {
+        countdown.classList.remove('text-warning')
+        countdown.classList.add('text-danger')
+      }
+      if (time == 00){
+        time++
+        endScreen()
+      }
+    }
+}
+
+// Starts Quiz
 function startBtn() {
     var startBtn = document.getElementById('start-btn');
     var intro = document.getElementById('intro');
@@ -15,18 +45,16 @@ function startBtn() {
     nextQuestion();
 }   
 
-function buttonClicked(number) {
+function buttonClicked(number) { 
     if (codeQuiz[index].correct === number) {
-        counter++
-        console.log(counter)
+        counter++;
     }
+    nextQuestion()
 }
 
-//document.getElementById("next-btn").addEventListener('click', nextQuestion);
-
+// Next Question
 function nextQuestion() {
-    nextBtn.classList.remove('hide');
-    if (index <= codeQuiz.length-1) {
+    if (index < codeQuiz.length) {
         document.getElementById("questionPrompt").innerHTML = codeQuiz[index].question;
         document.getElementById("answer1").innerHTML = codeQuiz[index].answer1;
         document.getElementById("answer2").innerHTML = codeQuiz[index].answer2;
@@ -34,66 +62,81 @@ function nextQuestion() {
         document.getElementById("answer4").innerHTML = codeQuiz[index].answer4;
         index++;
     }
-    
-    if (codeQuiz.length-1 === index) {
-        document.getElementById("questionPrompt").innerHTML = 'You got ' + counter + ' answers correct!'
-        nextBtn.classList.add('hide');
+    if (codeQuiz.length === index) {
+        document.getElementById("questionPrompt").innerHTML = 'You got ' + counter + ' out of 5!'
+        //nextBtn.classList.add('hide');
         answerBtns.classList.add('hide');
+        quizEndScreen.classList.remove('hide');
+        timeLeft.classList.add('hide');
     }
-
-    
-
 } 
+
+function endScreen() {
+    quizEndScreen.classList.remove('hide')
+    answerBtns.classList.add('hide')
+    timeLeft.classList.add('hide')
+    document.getElementById("questionPrompt").innerHTML = 'You got ' + counter + ' out of 5!'
+  }
+  let Score = [];
+    const addName = (ev)=>{
+        ev.preventDefault();
+        let name = {
+            Name: document.getElementById('InputInitials').value,
+            Score: counter,
+        }
+        Score.push(name);
+        document.forms[0].reset();
+        localStorage.setItem('HighScores', JSON.stringify(Score) );
+    }
+    document.addEventListener('DOMContentLoaded', ()=>{
+        document.getElementById('btn').addEventListener('click', addName);
+    });
+  
 
 
 
 //Question and answer array
 var codeQuiz =[
-    {question : "Who am I?",
-     answer1 : "Answer 1.1",
-     answer2 : "Answer 1.2",
-     answer3 : "Answer 1.3",
-     answer4 : "Answer 1.4", correct :2},
+    {question : "A very useful tool for used during development and debugging for printing content to the debugger is:?",
+    answer1 : "Javascript",
+    answer2 : "console log",
+    answer3 : "terminal / bash",
+    answer4 : "for loops", 
+    correct : 3,"was_correct":0},
 
-    {question : "Where am I?",
-     answer1 : "Answer 2.1",
-     answer2 : "Answer 1.2",
-     answer3 : "Answer 1.3",
-     answer4 : "Answer 1.4", correct :2},
+    {question : "Commonly used data types DO NOT include?",
+     answer1 : "strings",
+     answer2 : "numbers",
+     answer3 : "booleans",
+     answer4 : "alerts", 
+     correct : 2,"was_correct":0},
 
-    {question : "Who are you?",
-     answer1 : "Answer 3.1",
-     answer2 : "Answer 1.2",
-     answer3 : "Answer 1.3",
-     answer4 : "Answer 1.4", correct :2},
+    {question : "The condition in an if / else statement is enclosed within ____.",
+     answer1 : "parentheses",
+     answer2 : "square brackets",
+     answer3 : "curly brackets",
+     answer4 : "quotes", 
+     correct : 4,"was_correct":0},
 
-    {question : "Can I be you?",
-     answer1 : "Answer 4.1",
-     answer2 : "Answer 1.2",
-     answer3 : "Answer 1.3",
-     answer4 : "Answer 1.4", correct :2},
+    {question : "String values must be enclosed within ____ when being assigned to variables.",
+     answer1 : "parenthesis",
+     answer2 : "commas",
+     answer3 : "quotes",
+     answer4 : "curly brackets", 
+     correct : 1,"was_correct":0},
+
+    {question : "getElementById tracks what from HTML?",
+     answer1 : "Id",
+     answer2 : "Class",
+     answer3 : "Type",
+     answer4 : "src", 
+     correct : 3,"was_correct":0},
+
+     {question : "VOID",
+     answer1 : "VOID",
+     answer2 : "VOID",
+     answer3 : "VOID",
+     answer4 : "VOID", 
+     correct : 1,"VOID":0},
 ];
-
-/*
-question:'',
-answers:[
-    {text:'',correct:},
-]
-*/
-
-
-
-/*
-home.classList.add('hide');
-
-var sec = 10
-setInterval(function() {
-    document.getElementById("time").innerHTML = sec;
-    sec--;
-    if (sec == 00) {
-        sec = time.classList.add('hide');
-    }
-}, 1000);
-*/
-
 

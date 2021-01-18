@@ -12,3 +12,7 @@
 .container {
     padding-bottom: 5px;
 }
+
+.answer {
+    display: none;
+}
