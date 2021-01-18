@@ -2,7 +2,7 @@
 
 This website was designed to ask you simple javascript questions in a muliple choice answer format and was created for Module 4's Weekly Challenge: Code Quiz.
 
-Website url: https://dakotapierce26.github.io/Code-Quiz/?
+Website url: https://dakotapierce26.github.io/Code-Quiz/
 
 
 ## Screenshot of webpage
